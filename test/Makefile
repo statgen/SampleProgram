@@ -73,7 +73,7 @@ TEST_LIB_PATH_SAMPLE_PROGRAM := $(patsubst ../%, ../../%, $(LIB_PATH_SAMPLE_PROG
 
 ########################
 # Include the base test Makefile
-include $(LIB_PATH_SAMPLE_PROGRAM)/Makefiles/Makefile.test
+include $(TEST_LIB_PATH_SAMPLE_PROGRAM)/Makefiles/Makefile.test
 
 ########################
 # Add any additional targets here.
