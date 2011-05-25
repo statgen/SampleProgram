@@ -80,5 +80,7 @@ $(LIB_PATH_SAMPLE_PROGRAM)/Makefiles/Makefile.src:
 
 # Specify to download the statgen library from git (read-only)
 download:
-	git clone git://github.com/statgen/libStatGen.git $(LIB_PATH_SAMPLE_PROGRAM)
+	@if test -d $(LIB_PATH_SAMPLE_PROGRAM); \
+	then echo $(LIB_PATH_SAMPLE_PROGRAM) already exists; \
+	else git clone git://github.com/statgen/libStatGen.git $(LIB_PATH_SAMPLE_PROGRAM); fi
 	$(MAKE) -C $(LIB_PATH_SAMPLE_PROGRAM) --no-print-directory all; \
