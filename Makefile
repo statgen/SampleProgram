@@ -36,6 +36,9 @@ USER_INCLUDES =
 # USER_WARNINGS ?= -Werror -Wno-unused-variable $(shell if [ X$(CCVERSION) \> X4.2.0 ] ; then echo " -Wno-unused-result" ; fi)
 USER_WARNINGS =
 
+# If you don't want to include the current directory (-I.), uncomment this line:
+#CURRENT_DIR_INCLUDE=
+
 # Specify any TOOLBASE that needs to be re-compiled when any other file
 # is modified.  Do NOT specify this same file in TOOLBASE.
 # Example: if you have Executable.cpp and Executable.h, specify:
