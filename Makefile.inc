@@ -15,9 +15,12 @@ VERSION=0.1.1
 # If one program needs a different path, you would set LIB_PATH_SAMPLE_PROGRAM
 # (replacing SAMPLE_PROGRAM with the appropriate name) to that different path.
 CURRENT_PATH := $(dir $(lastword $(MAKEFILE_LIST)))
-LIB_PATH_GENERAL ?=$(CURRENT_PATH)/../libStatGen
+LIB_PATH_GENERAL ?=../libStatGen
 LIB_PATH_SAMPLE_PROGRAM ?= $(LIB_PATH_GENERAL)
-INCLUDE_MAKE = $(LIB_PATH_SAMPLE_PROGRAM)/Makefiles/$(PARENT_MAKE)
+
+# add any additional ../ as necessary if it is a relative path
+ACTUAL_PATH =  $(patsubst ../%, $(CURRENT_PATH)../%, $(LIB_PATH_SAMPLE_PROGRAM))
+INCLUDE_MAKE = $(ACTUAL_PATH)/Makefiles/$(PARENT_MAKE)
 
 ########################
 # Include the base Makefile

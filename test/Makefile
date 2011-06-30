@@ -1,7 +1,7 @@
 # The command you want to run.
 # Example: Use library bam test files, create a results directory, and run
 # a test script you have created.
-# TEST_COMMAND = ln -sfT $(TEST_LIB_PATH_SAMPLE_PROGRAM)/bam/test/testFiles testFilesLibBam; \
+# TEST_COMMAND = ln -sfT $(ACTUAL_PATH)/bam/test/testFiles testFilesLibBam; \
 #                mkdir -p results; ./test.sh
 TEST_COMMAND=
 
@@ -32,10 +32,6 @@ HDRONLY =
 
 ########################
 # Optional settings if you need them for your test program.
-
-# Specify the version you want for your program. 
-VERSION?=0.1.1
-
 # Specify any additional compile varaibles you want
 # Example:
 # DATE=$(shell date)
@@ -58,22 +54,9 @@ USER_WARNINGS =
 COMPILE_ANY_CHANGE = 
 
 ########################
-# Library Path:
-#
-# Default path to the statgen library.  You can either update your copy of
-# this Makefile to be where you want to get the Makefile from or you can 
-# overwrite LIB_PATH_GENERAL or LIB_PATH_SAMPLE_PROGRAM.
-# This design is such that if you have multiple programs, you could just set
-# LIB_PATH_GENERAL to the location they should all use to find the library.
-# If one program needs a different path, you would set LIB_PATH_SAMPLE_PROGRAM
-# (replacing SAMPLE_PROGRAM with the appropriate name) to that different path.
-LIB_PATH_GENERAL ?= ../libStatGen
-LIB_PATH_SAMPLE_PROGRAM ?= $(LIB_PATH_GENERAL)
-TEST_LIB_PATH_SAMPLE_PROGRAM := $(patsubst ../%, ../../%, $(LIB_PATH_SAMPLE_PROGRAM))
-
-########################
-# Include the base test Makefile
-include $(TEST_LIB_PATH_SAMPLE_PROGRAM)/Makefiles/Makefile.test
+# Include the base Makefile
+PARENT_MAKE = Makefile.test
+include ../Makefile.inc
 
 ########################
 # Add any additional targets here.
