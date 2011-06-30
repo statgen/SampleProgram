@@ -6,7 +6,7 @@ Update EXE and add your own cpp/h files to the appropriate lines of the Makefile
 
 --------------------------------------------------------------------------------
 To download & compile the required statgen library:
-  make download
+  make libStatGen
 Next, to build this program:
   make
 To install:
