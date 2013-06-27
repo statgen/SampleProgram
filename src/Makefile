@@ -21,7 +21,7 @@ HDRONLY =
 # Example:
 # DATE=$(shell date)
 # USER=$(shell whoami)
-# USER_COMPILE_VARS = -DDATE="\"${DATE}\"" -DUSER="\"${USER}\"" -lcrypto
+# USER_COMPILE_VARS = -DDATE="\"${DATE}\"" -DUSER="\"${USER}\""
 USER_COMPILE_VARS = 
 
 # Specify any additional includes you need.
